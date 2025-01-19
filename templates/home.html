@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BON VOYAGE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'img/travelicon.png' %}">
+    <style>
+       #div1{
+            background-color: blue;
+            color: white;
+            text-align: right;
+            font-weight: 500;
+            padding: 10px;
+       }
+       #div2{
+            background-color: rgb(17, 209, 17);
+            height: 70px;
+            padding-top: 7px;
+            
+       }
+       #div2 a{
+        color: white;
+        font-size: 20px;
+        margin-left: 100px;
+       }
+       a{
+        text-decoration: none;
+       }
+       img{
+        height: 400px;
+        width: 1520px;
+        z-index: -2;
+       }
+       #div3{
+        position: relative;
+       }
+       #div3 h1 {
+            position: absolute; /* Position h1 inside the parent */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust centering */
+            color: rgb(255, 255, 255);
+            font-size: 55px;
+            z-index: 1; /* Ensure h1 is above the image */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for readability */
+        }
+        #div4{
+            display: flex;
+            margin: 0 auto;
+        }
+        #divs {
+            position: sticky; /* Sticky positioning */
+            top: 0; /* Sticks to the top of the viewport */
+            z-index: 1000; /* Ensure it stays above other elements */
+            background-color: white; /* Optional: Add background to avoid transparency */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+        }
+        #div1 a:hover {
+            text-decoration: underline; /* Optional hover effect */
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+    Toll Free Number:180054762578 &nbsp;&nbsp;<a href="{% url 'login' %}" style="color: white;"> Sign In/</a><a href="{% url 'register' %}" style="color: white;">Sign Up</a>
+    </div><br>
+    <div id="divs">
+    <h1 style="margin-left: 100px;"><span style="color: rgb(88, 155, 243);">Bon-</span><span style="color: rgb(17, 209, 17);">Voyage</span></h1><br>
+    <div id="div2">
+        <b>
+        <a id="a1" href="{% url 'home' %}">Home</a>
+        <a id="a1" href="{% url 'package' %}">Tour Packages</a>
+        <a id="a1" href="{% url 'terms' %}">Terms of Use</a>
+        <a id="a1" href="{% url 'enquiry' %}">Enquiry</a>
+        <a id="a1" href="{% url 'aboutus' %}">About Us</a>
+        <a id="a1" href="{% url 'contactus' %}">Contact Us</a>
+    </b>
+    </div>
+    </div>
+    <div id="div3">
+    <img src="{% static 'img/travel-home.jpg' %}" >
+    <h1>BON-VOYAGE</h1>
+    </div><br>
+    <div id="div4">
+        <div class="card w-50 ms-5 d-flex flex-row align-items-center p-3 border-0">
+            <!-- Image on the Left -->
+            <img src="{% static 'img/smart.png' %}" alt="Card Image" class="me-3" style="width: 100px; height: 100px; z-index: 1;">
+            <!-- Content on the Right -->
+            <div class="card-body">
+                <h4 class="card-title" style="color: rgb(17, 209, 17);">Travel Smart</h4>
+                <h5 class="card-title" style="color: blue;">With Our <br>Amazing <br> Packages</h5>
+            </div>    
+        </div>
+        <div class="card w-50 ms-5 d-flex flex-row align-items-center p-3 border-0">
+            <!-- Image on the Left -->
+            <img src="{% static 'img/hotel.png' %}" alt="Card Image" class="me-3" style="width: 100px; height: 100px; z-index: 1;">
+            <!-- Content on the Right -->
+            <div class="card-body">
+                <h4 class="card-title" style="color: rgb(17, 209, 17);">Up to 20% Off</h4>
+                <h5 class="card-title" style="color: blue;">On Hotels <br>Across <br> India</h5>
+            </div>    
+        </div>
+        <div class="card w-50 ms-5 d-flex flex-row align-items-center p-3 border-0">
+            <!-- Image on the Left -->
+            <img src="{% static 'img/percent.png' %}" alt="Card Image" class="rounded-circle me-3" style="width: 100px; height: 100px; z-index: 1;">
+            <!-- Content on the Right -->
+            <div class="card-body">
+                <h4 class="card-title" style="color: rgb(17, 209, 17);">Special Offer</h4>
+                <h5 class="card-title" style="color: blue;">Special Offer <br>For Family <br> with Kids</h5>
+            </div>    
+        </div>
+    </div>
+    
+    <br><br>
+    <div style="margin: 0 auto; width: 300px;">
+        <p >© 2024 bonvoyage.com</p>
+    </div><br>     
+</body>
+</html>

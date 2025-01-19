@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="{% static 'img/travelicon.png' %}">
+</head>
+<style>
+    #div1{
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        width: 400px;
+        height: 800px;
+        margin: 0 auto; /* Horizontal centering */
+    }
+    form input,select{
+        margin-left: 50px;
+    }
+    form #img1{
+        margin-left: 150px;
+    }
+    form #img2{
+        margin-left: 20px;
+    }
+    #div1 p{
+        text-align: center;
+    }
+    #div1 h1{
+        text-align: center;
+        color: white;
+    }
+    form input{
+            border: 3px ridge;
+            width: 300px;
+            height: 30px;
+            padding-left: 35px;
+        }
+    form select{
+        border: 3px ridge;
+        width: 150px;
+        height: 30px;
+        text-indent: 35px;
+        color: #888;
+    }
+    input[type="submit"] {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+
+    }
+    option{
+        font-family: times new roman;
+    }
+    input:focus {
+        border-color: blue; /* Green border */
+        outline: none;
+    }
+    input::placeholder {
+        color: #888;
+        text-indent: 35px;
+    }
+</style>
+<body>
+    <br><br>
+    <a href="{% url 'home' %}" title="Back to home"><img src="{% static 'img/home-button.png' %}" style="width: 40px;"></a>
+    <br><br><br>
+    <div id="div1">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="div2" style="background-color: blue; padding: 3px;">
+        <h1 style="font-family: Georgia;">Register</h1>
+        </div>
+        <br>
+        <div style="position: relative;">
+        <img src="{% static 'img/user.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input type="text" name="first_name" placeholder="First Name" style="width: 265px;"  required><br><br>
+        <img src="{% static 'img/user.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input type="text" name="last_name" placeholder="Last Name" style="width: 265px;" required><br><br>
+        <img src="{% static 'img/genderpic.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 5px;">
+        <select name="gender"  required>
+            <option>Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select><br><br>
+        <img src="{% static 'img/phonepic.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input placeholder="Phone No" type="number" style="width: 265px;" name="phone" pattern="[0-9]{10}"  required><br><br>
+        <img src="{% static 'img/user.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input placeholder="User Name" type="text" style="width: 265px;" name="username"  required><br><br>
+        <img src="{% static 'img/email1.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input type="email" name="email" placeholder="Email" style="width: 265px;" required><br><br>
+        <img src="{% static 'img/lock.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input type="password" name="password" placeholder="Password" style="width: 265px;" required><br><br>
+        <img src="{% static 'img/lock.png' %}"   style="width: 20px; position: absolute; margin-left: 60px; margin-top: 8px;">
+        <input type="password" name="confirmpassword" placeholder="Confirm Password" style="width: 265px;" required><br><br>
+        <input type="submit" value="Register" ><br><br>
+        </div>
+        <p>Or</p>
+        <p>Already have an account! <a href="{% url 'login' %}" style="color: blue;">Login</a></p>
+        <img src="{% static 'img/google.png' %}" alt="" style="width: 40px;" id="img1">
+        <img src="{% static 'img/facebook.png' %}" alt="" style="width: 40px;" id="img2">
+        
+    </form>
+    </div>
+    <br><br>
+    <div style="margin: 0 auto; width: 300px;">
+        <p >© 2024 bonvoyage.com</p>
+    </div><br> 
+</body>
+</html>

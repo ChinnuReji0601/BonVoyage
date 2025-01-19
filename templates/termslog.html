@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BON VOYAGE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'img/travelicon.png' %}">
+    <style>
+       #div1 {
+            display: flex;
+            justify-content: space-between; /* Push spans to opposite ends */
+            align-items: center; /* Vertically center content */
+            background-color: blue; /* Example background color */
+            color: white; /* Text color */
+            padding: 10px; /* Optional padding */
+          }
+
+          #div1 span {
+            margin: 0; /* Ensure no extra margins interfere */
+          }
+
+          #spn1 {
+            text-align: right; /* Ensure text within spans is aligned to the right */
+          }
+
+          #div1 a {
+            color: white;
+            text-decoration: none;
+          }
+
+          #div1 a:hover {
+            text-decoration: underline; /* Optional hover effect */
+          }
+
+       #div2{
+            background-color: rgb(17, 209, 17);
+            height: 70px;
+            padding-top: 7px;
+
+       }
+       #div2 a{
+        color: white;
+        font-size: 20px;
+        margin-left: 100px;
+       }
+       a{
+        text-decoration: none;
+       }
+       img{
+        height: 400px;
+        width: 1520px;
+        z-index: -2;
+       }
+       #div3{
+        position: relative;
+       }
+       #div3 h1 {
+            position: absolute; /* Position h1 inside the parent */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust centering */
+            color: rgb(255, 255, 255);
+            font-size: 55px;
+            z-index: 1; /* Ensure h1 is above the image */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for readability */
+        }
+        #div4{
+            display: flex;
+        }
+        #divs{
+            position: sticky; /* Sticky positioning */
+            top: 0; /* Sticks to the top of the viewport */
+            z-index: 1000; /* Ensure it stays above other elements */
+            background-color: white; /* Optional: Add background to avoid transparency */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+        }
+
+        /* Style for the dropdown container */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Image button */
+      .dropdown img {
+        width: 40px; /* Adjust image size */
+        height: 40px;
+        cursor: pointer;
+        margin-left: 150px;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #5cef5c;
+<!--        min-width: 160px;-->
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        text-align: left;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Hover effect for links */
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      /* Show dropdown on click */
+      .dropdown.show .dropdown-content {
+        display: block;
+      }
+    </style>
+</head>
+<body>
+    <div id="div1" >
+    <span >WELCOME {{username}} !</span><span style="text-align:right;" id="spn1">Toll Free Number:180054762578 &nbsp;&nbsp;<a href="{% url 'home' %}" style="color: white;"> Logout</a></span>
+    </div><br>
+    <div id="divs">
+    <h1 style="margin-left: 100px;"><span style="color: rgb(88, 155, 243);">Bon-</span><span style="color: rgb(17, 209, 17);">Voyage</span></h1><br>
+    <div id="div2">
+        <b>
+        <a id="a1" href="{% url 'dashboard' %}">Home</a>
+        <a id="a1" href="{% url 'packagelog' %}">Tour Packages</a>
+        <a id="a1" href="{% url 'termslog' %}">Terms of Use</a>
+        <a id="a1" href="{% url 'enquirylog' %}">Enquiry</a>
+        <a id="a1" href="{% url 'aboutuslog' %}">About Us</a>
+        <a id="a1" href="{% url 'contactuslog' %}">Contact Us</a>
+            <div class="dropdown">
+          <!-- Image button -->
+          <img src="{% static 'img/menubar.png' %}" alt="Menu" onclick="toggleDropdown()" />
+
+          <!-- Dropdown menu -->
+          <div class="dropdown-content" style="width:300px;">
+              <a href="{% url 'bookings' %}">Bookings</a>
+              <a href="{% url 'tablepayment' %}">Payment Details</a>
+              <a href="{% url 'home' %}">Logout</a>
+          </div>
+        </div>
+
+        <script>
+          // JavaScript function to toggle the dropdown
+          function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('show');
+          }
+
+          // Close dropdown if clicked outside
+          window.addEventListener('click', function (e) {
+            const dropdown = document.querySelector('.dropdown');
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('show');
+            }
+          });
+        </script>
+    </b>
+    </div>
+    </div>
+    <br><br>
+    <div class="shadow-lg" style="padding: 50px; margin: 0 auto; width: 1000px;">
+    <p>{{ term.description }}</p>
+    </div>
+    <br><br>
+    <div style="margin: 0 auto; width: 300px;">
+        <p >© 2024 bonvoyage.com</p>
+    </div><br>
+</body>
+</html>
+
